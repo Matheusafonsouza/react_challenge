@@ -14,7 +14,17 @@ function App() {
   }, []);
 
   async function handleAddRepository() {
-    // TODO
+    const response = await api.post('repositories', {
+      "title": "Desafio Node.js",
+      "url": "https://github.com/rocketseat-education/bootcamp-gostack-desafios/tree/master/desafio-conceitos-nodejs#rocket-sobre-o-desafio",
+      "techs": [
+        "Node.js",
+        "React.js",
+        "Vim"
+      ]
+    })
+
+    setRepositories([...repositories, response.data]);
   }
 
   async function handleRemoveRepository(id) {
